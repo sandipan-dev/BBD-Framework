@@ -35,3 +35,27 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+
+Then(/^I verify Products Navigation link is displayed$/, async () => {
+    await testPage.verifyProductsNav();
+});
+
+Then(/^I verify Prodcuts page is displayed$/, async () => {
+    await testPage.verifyProductsPage();
+});
+
+Then(/^I verify TED page is displayed$/, async () => {
+    await testPage.verifyTEDPage();
+});
+
+Then(/^I verify Focus on Your Core Business. Let TED Handle the Complexities text is displayed$/, async () => {
+    await testPage.verifyTEDSubPage();
+});
+
+Then(/^I verify Company Email text box is displayed$/, async () => {
+    await testPage.verifyTEDEmailTextBox();
+});
+
+Then(/^I verify Request a Demo button is displayed$/, async () => {
+    await testPage.verifyTEDEmailDemoButton();
+});
