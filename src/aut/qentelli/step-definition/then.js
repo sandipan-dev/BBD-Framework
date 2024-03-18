@@ -35,3 +35,21 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+
+Then (/^I verify the paragraph is displayed$/,async () =>{
+    await testPage.verifyThoughtLeaderText();
+});
+
+Then (/^I verify the text content$/,async () => {
+    await testPage.verifyThoughtLeaderTextContent();
+});
+
+
+Then (/^I verify the first insight text is displayed$/, async () => {
+    await testPage.verifyThoughtFirstSight();
+});
+
+Then (/^I verify the insight page is displayed$/,async () => {
+    await testPage.verifyInsightNav();
+})
+

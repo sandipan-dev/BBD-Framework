@@ -16,6 +16,18 @@ const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
 const shadowText = "File";
 
+const ThoughtLeadership = "li#thought_tab";
+const ThoughtLeadershipText = "//div[@class='digital_bg']//p"
+const ThoughtData ="In our clients' journey toward Digital Transformation, our primary goal is to accelerate the delivery of business value. This is achieved by aligning IT agility with business agility. Our comprehensive approach extends beyond streamlining infrastructure and automating release processes to include performance monitoring. Most importantly, we focus on cultural renovation, ensuring that these technical advancements are embraced and maximized within your organization."
+const FirstInsight= "(//div[@class='insight-box views-col col-1'])[1]"
+const FirstInsightLink = "//a[contains(text(),'Revolutionizing Financial and Controlling Operatio')]"
+const FirstInsightContent = "In today’s rapidly changing business landscape, integrating advanced technologies is essential, particularly in finance and operations."
+const FirstInsightText = "//p[contains(text(),'In today’s rapidly changing business landscape, in')]"
+const FirstInsightNav = "(//span[@class='field-content'])[1]"
+const InsightPageTitle = "Digital Platform Strategy - Driving Enterprise Revolution"
+const InsightText = "//div[@class='field-item' and text()='Digital Platform Strategy - Driving Enterprise Revolution']"
+
+
 export default class TestPage extends Page {
 
     constructor() {
@@ -59,6 +71,11 @@ export default class TestPage extends Page {
         await action.clickElement(contactUsNav, 100);
     }
 
+    //click Qentelli Thought Leadership
+        async clickThoughtLeadership() {
+        await action.clickElement(ThoughtLeadership,100);
+    }
+
     // Verify Qentelli About Us Page
     async verifyAboutUsPage() {
         await action.verifyIsDisplayed(this.ourFounder);
@@ -94,4 +111,43 @@ export default class TestPage extends Page {
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
+    //Verify Thought leadership text displayed
+     async verifyThoughtLeaderText() {
+        await action.verifyIsDisplayed(ThoughtLeadershipText);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+     }
+    
+     //Verify Thought leadership text contert
+     async verifyThoughtLeaderTextContent() {
+        await action.verifyText(ThoughtLeadershipText,ThoughtData);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+     }
+
+     //Verify First insight
+     async verifyThoughtFirstSight() {
+        await action.verifyIsDisplayed(FirstInsight);
+        await action.verifyIsDisplayed(FirstInsightLink);
+        await action.pause(1000);
+        await action.verifyText(FirstInsightText,FirstInsightContent);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+     }
+
+     //Verify First insight read more navigation
+     async clcikFirstInsightReadmore()   {
+        await action.clickElement(FirstInsightNav);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+     } 
+     
+     // Verify First insight Navigation Page Title
+     async verifyInsightNav() {
+        await action.verifyIsDisplayed(InsightText);
+        await action.pause(1000);
+        await action.verifyText(InsightText,InsightPageTitle);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+     }
+     
+        
 }

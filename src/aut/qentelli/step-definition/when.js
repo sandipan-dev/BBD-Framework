@@ -15,3 +15,12 @@ When(/^I click on About Us Navigation link$/, async () => {
 When(/^I click on Contact Us Navigation link$/, async () => {
     await testPage.clickContactUs();
 });
+
+When(/^I click on Thought Leadership in solutions$/,async () =>{
+    await testPage.clickThoughtLeadership();
+});
+
+When(/^I click on first insight read more$/, async () => {
+    await testPage.clcikFirstInsightReadmore();
+});
+   
