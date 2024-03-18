@@ -113,7 +113,7 @@ export default class TestPage extends Page {
     async clickQualityEngineering() {
         await action.clickElement(qualityEngineeringNav, 100);
     }
-
+    
     // Verify Quality Engineering Services Element is displayed
     async verifyQEServicesELementIsDisplayed() {
         await action.verifyIsDisplayed(qualityEngineeringElement, 100);
