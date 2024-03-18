@@ -35,3 +35,42 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+Then(/^I verify Thought Leadership link is displayed$/, async () => {
+    await testPage.verifyThoughtLeadershipNav();
+});
+Then(/^I verify case studies link is displayed$/, async () =>{
+    await testPage.verifyCaseStudies();
+} );
+Then(/^I verify Insights link is displayed$/, async () =>{
+    await testPage.verifyInsights();
+});
+Then(/^I verify Insights text$/, async () => {
+    await testPage.insightsText();
+});
+Then(/^I verify Application Security link$/, async () => {
+    await testPage.applicationSecurity();
+});
+Then(/^I Verify Application Security Submittion form$/, async () => {
+    await testPage.applicationSecurityForm();
+});
+Then(/^I Verify Application Security Image$/, async () => {
+    await testPage.applicationSecurityImg();
+});
+Then(/^I Verify Blue Box text$/, async () => {
+    await testPage.valBlueBoxText();
+});
+Then(/^I Verify Explore Testimonials button$/, async () =>{
+    await testPage.exploreTestimonialBut();
+});
+Then(/^I Verify the YPO Text$/, async () => {
+    await testPage.valYpoText();
+});
+Then(/^I Verify the Person Name$/, async () => {
+    await testPage.valYpoPerName();
+});
+Then(/^I Verify the Disignation$/, async () => {
+    await testPage.valYpoPerDis();
+});
+Then(/^I Verify Know More Button$/, async () => {
+    await testPage.knowMore();
+});
