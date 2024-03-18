@@ -8,6 +8,16 @@ import Page from './Page';
 
 dotenv.config();
 
+const Rightside_X  = "//p[normalize-space()='© 2024 Qentelli. All rights are reserved.']";
+const Privacy_Policy  = "//a[@href='/privacy-policy']";
+const Contact_Us = "(//a[@href='/contact-us'])[2]";
+const S_X = "//div[@class='copy_icon']//li[5]//a";
+const S_Facebook = "//div[@class='copy_icon']//li[4]//a";
+const S_Instagram = "//div[@class='copy_icon']//li[3]//a";
+const S_Glassdoor = "//div[@class='copy_icon']//li[2]//a";
+const S_Linkedin = "//a[@href='https://www.linkedin.com/company/qentelli/']";
+const Thought_Ledership = "//a[@href='/products/thought-leadership']";
+const clickProducts = "//a[normalize-space()='PRODUCTS']";
 const brand = "//a[@class='navbar-brand']";
 const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]";
 const contactUsNav = "//li[@id='contact_tab']";
@@ -93,5 +103,38 @@ export default class TestPage extends Page {
         await expect(locator).toBeDisplayed();
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    async clickProd(){
+        await action.clickElement(clickProducts, 100)
+    }
+
+    // await action.verifyIsDisplayed(clickProducts, 100)
+     async TLedership(){
+        await action.clickElement(Thought_Ledership, 100)
+    }
+    async Linkedin_M(){
+        await action.verifyIsDisplayed(S_Linkedin, 100)
+    }
+    async Glassdoor_M(){
+        await action.verifyIsDisplayed(S_Glassdoor, 100)
+    }
+    async Instagram_M(){
+        await action.verifyIsDisplayed(S_Instagram, 100)
+    }
+    async Facebook_M(){
+        await action.verifyIsDisplayed(S_Facebook, 100)
+    }
+    async X_M(){
+        await action.verifyIsDisplayed(S_X, 100)
+    }
+    async Contactus_M(){
+        await action.verifyIsDisplayed(Contact_Us, 100)
+    }
+    async PrivacyPolicy_M(){
+        await action.verifyIsDisplayed(Privacy_Policy, 100)
+    }
+    async Rightsidetext_M(){
+        await action.verifyIsDisplayed(Rightside_X, 100)
     }
 }
