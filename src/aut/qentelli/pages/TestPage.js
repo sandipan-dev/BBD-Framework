@@ -16,6 +16,13 @@ const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
 const shadowText = "File";
 
+const solutionsHover = "//p[@id='solution_tab']//a[contains(text(),'Solutions')]";
+const qualityEngineeringNav = "//h4[@id='Quality_tab']";
+const qualityEngineeringElement = "//div[@class='digital_banner-txt']//h1";
+const qualityEngineeringSubElement = "//div[@class='digital_banner-txt']//p"
+const qualityLabel = "//div[@class='js-form-item form-item form-type-email js-form-type-email form-item-email js-form-item-email form-no-label']"
+const submitButton = "//input[@id='edit-actions-submit']"
+
 export default class TestPage extends Page {
 
     constructor() {
@@ -93,5 +100,43 @@ export default class TestPage extends Page {
         await expect(locator).toBeDisplayed();
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify Solutions Tab
+    async verifySolutionsIsDisplayed() {
+        await action.clickElement(solutionsHover)
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Click Qentelli Quality Engineering Navigation Link
+    async clickQualityEngineering() {
+        await action.clickElement(qualityEngineeringNav, 100);
+    }
+
+    // Verify Quality Engineering Services Element is displayed
+    async verifyQEServicesELementIsDisplayed() {
+        await action.verifyIsDisplayed(qualityEngineeringElement, 100);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify Sub-Text is Displayed
+    async verifyQEServicesSubELementIsDisplayed() {
+        await action.verifyIsDisplayed(qualityEngineeringSubElement, 100);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify E-mail Label
+    async verifyQualityLabel() {
+        await action.verifyIsDisplayed(qualityLabel);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Click Talk to an Expert button
+    async clickTalkToExpert() {
+        await action.clickElement(submitButton, 100);
     }
 }

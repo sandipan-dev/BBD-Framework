@@ -35,3 +35,27 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+
+Then(/^I hover on Solutions tab$/, async () => {
+    await testPage.verifySolutionsIsDisplayed();
+});
+
+Then(/^I click on Quality Engineering Navigation link$/, async () => {
+    await testPage.clickQualityEngineering();
+});
+
+Then(/^I verify Quality Engineering element is displayed$/, async () => {
+    await testPage.verifyQEServicesELementIsDisplayed();
+});
+
+Then(/^I verify sub-text element is displayed$/, async () => {
+    await testPage.verifyQEServicesSubELementIsDisplayed();
+});
+
+Then(/^I verify the label is displayed$/, async () => {
+    await testPage.verifyQualityLabel();
+});
+
+Then(/^I click on Talk to an expert button$/, async () => {
+    await testPage.clickTalkToExpert();
+});
