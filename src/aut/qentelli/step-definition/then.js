@@ -58,11 +58,11 @@ Then(/^I verify x$/, async () => {
     await testPage.X_M();
 });
 Then(/^I verify on Contact Us link$/, async () => {
-    await testPage.X_M();
+    await testPage.Contactus_M();
 });
 Then(/^I verify on Privacy Policy$/, async () => {
-    await testPage.X_M();
+    await testPage.PrivacyPolicy_M();
 });
 Then(/^I verify left side text of social media icons$/, async () => {
-    await testPage.X_M();
+    await testPage.Rightsidetext_M();
 });
