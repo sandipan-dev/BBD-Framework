@@ -35,3 +35,25 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+
+Then (/^I verify the Thought LeaderShip page is displayed$/, async () =>{
+    await testPage.verifyThoughtLeaderShipPage();
+});
+
+Then(/^Case Studies page and title is displayed$/, async()=>{
+    await action.pause(2000);
+    await testPage.verifyCaseStudyPage();
+});  
+
+Then(/^verify the optimize link and read link is displayed$/, async()=>{
+   await testPage.verifyOptimizeLink();
+});
+
+Then(/^Verify the Empowering global RPA and read links$/, async()=>{
+await testPage.verifyempowerink();
+}
+);
+
+Then(/^Verify the Microservices & Serverless and read links$/, async()=>{
+await testPage.verifyMicroServiceLink();
+});

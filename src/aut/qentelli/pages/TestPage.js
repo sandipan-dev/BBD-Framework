@@ -11,6 +11,17 @@ dotenv.config();
 const brand = "//a[@class='navbar-brand']";
 const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]";
 const contactUsNav = "//li[@id='contact_tab']";
+const thoughtLeadership ="//li[@id='thought_tab']/a";
+const casestudies = "//ul[@class='thought-banner-btns']/li/a[contains(text(),'Case Studies')]";
+const optimizing = "//div[@class='insight-box views-col col-1']/div[@class='views-field views-field-field-tittle']/div/a[contains(text(),'Optimizing')]";
+const empower   ="//div[@class='views-field views-field-field-tittle']/div/a[starts-with(text(),'Empowering')]";
+const microservice = "//div[@class='views-field views-field-field-tittle']/div/a[starts-with(text(),'Microservices')]";
+const microserviceText = "//div[@class='casestudy-banner_txt']/h3";
+const microserviceTextData = "Microservices & Serverless in Consumer Tech";
+const techstack = "//li/a[starts-with(text(),'Tech Stack')]";
+
+
+
 
 const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
@@ -22,6 +33,8 @@ export default class TestPage extends Page {
         super();
         this.ourFounder = "//div[@class='Heading_text']//h2[contains(text(),'Our Founders')]";
         this.contactUs = "//div[@class='digital_banner-txt']//h1[contains(text(),'Contact Us')]";
+        this.tabs = "//li/a";
+        this.techwave = "//div[@class='case_icon_box']/ul/li/a";
     }
 
     // Navigate to Qentelli Website
@@ -34,6 +47,14 @@ export default class TestPage extends Page {
     // Verify Qentelli Brand
     async verifyBrand() {
         await action.verifyIsDisplayed(brand);
+        const elements2 = await $$(this.tabs);
+        await elements2.filter(async(ele) =>{
+            console.log(await ele.getText());
+        })
+        // await elements1.forEach(async (ele) => {
+        //         console.log(text);
+        //     });
+        // });
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 
@@ -94,4 +115,49 @@ export default class TestPage extends Page {
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
+
+
+
+    //click on the thought leadership
+    async clickOnThoughtLeadershipTab(){
+        await action.clickElement(thoughtLeadership,100);
+    }
+
+    //verify the thought leadership is displayed
+    async verifyThoughtLeaderShipPage(){
+        await action.verifyIsDisplayed(casestudies, 100);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+
+    }
+    async clickOnCasestudiesLink(){
+        await action.clickElement(casestudies,100);
+    }
+    async verifyCaseStudyPage(){
+        await action.pause(1000);
+        await action.verifyIsDisplayed(optimizing,100);
+    }
+   async verifyempowerink(){
+    await action.verifyIsDisplayed(empower,100);
+
+   }
+   async verifyMicroServiceLink(){
+    await action.verifyIsDisplayed(microservice,100);
+    await action.clickElement(microservice,100);
+    await action.pause(2000);
+    await action.verifyIsDisplayed(microserviceText,100);
+    await action.verifyText(microserviceText,microserviceTextData);
+    await action.clickElement(techstack,1000);
+    const techwave = await $$(techstack);
+    // await techwave.filter(async(ele)=>{
+    //   console.log(await ele.getText())
+     //   console.log(await ele.getText())
+      //   console.log(await ele.getText())
+    // });
+    cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+
+   }
+   async verifyOptimizeLink(){
+    await action.verifyIsDisplayed(optimizing,100);
+    cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+   }
 }
