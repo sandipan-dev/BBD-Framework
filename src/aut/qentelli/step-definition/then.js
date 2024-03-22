@@ -57,3 +57,7 @@ await testPage.verifyempowerink();
 Then(/^Verify the Microservices & Serverless and read links$/, async()=>{
 await testPage.verifyMicroServiceLink();
 });
+
+Then(/^print all tabs text in Qentelli page$/, async()=>{
+    await testPage.getTabstextQentellipage();
+});

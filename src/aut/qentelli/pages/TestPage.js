@@ -18,7 +18,7 @@ const empower   ="//div[@class='views-field views-field-field-tittle']/div/a[sta
 const microservice = "//div[@class='views-field views-field-field-tittle']/div/a[starts-with(text(),'Microservices')]";
 const microserviceText = "//div[@class='casestudy-banner_txt']/h3";
 const microserviceTextData = "Microservices & Serverless in Consumer Tech";
-const techstack = "//li/a[starts-with(text(),'Tech Stack')]";
+
 
 
 
@@ -46,15 +46,8 @@ export default class TestPage extends Page {
 
     // Verify Qentelli Brand
     async verifyBrand() {
+        await action.pause(1000);
         await action.verifyIsDisplayed(brand);
-        const elements2 = await $$(this.tabs);
-        await elements2.filter(async(ele) =>{
-            console.log(await ele.getText());
-        })
-        // await elements1.forEach(async (ele) => {
-        //         console.log(text);
-        //     });
-        // });
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 
@@ -101,6 +94,14 @@ export default class TestPage extends Page {
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 
+    //checking tabs in Qentelli page
+    async getTabstextQentellipage(){
+        const tabs = await $$(this.tabs);
+        await tabs.filter(async(ele) =>{
+            console.log(await ele.getText());
+        })
+    }
+
     // Verify ShadowRoot Demo Page description
     async verifyShadowRootDemoPageDescription() {
         await action.verifyIsDisplayed(shadowRootDemoDescription, 100);
@@ -143,7 +144,7 @@ export default class TestPage extends Page {
    async verifyMicroServiceLink(){
     await action.verifyIsDisplayed(microservice,100);
     await action.clickElement(microservice,100);
-    await action.pause(2000);
+    await action.pause(1000);
     await action.verifyIsDisplayed(microserviceText,100);
     await action.verifyText(microserviceText,microserviceTextData);
     cucumberJson.attach(await browser.takeScreenshot(), 'image/png');

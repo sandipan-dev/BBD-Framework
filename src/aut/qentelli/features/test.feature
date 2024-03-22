@@ -11,8 +11,9 @@ Feature: Test
     # When I click on Contact Us Navigation link
     # Then I verify Contact Us page is displayed
 
-  Scenario:I verify the casestudy page in the QeGiven I navigate to the Qentelli Website
+  Scenario:I verify the casestudy page in the Qentelli website
       Then I verify Company brand is displayed
+      And print all tabs text in Qentelli page
       When I click on the Thought LeaderShip tab
       Then I verify the Thought LeaderShip page is displayed
       When I click on Case Studies link
