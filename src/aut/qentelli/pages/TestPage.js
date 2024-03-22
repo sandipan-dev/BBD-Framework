@@ -22,6 +22,7 @@ const brand = "//a[@class='navbar-brand']";
 const aboutUsNav = "//li[@id='about_us']//a[contains(text(),'About Us')]";
 const contactUsNav = "//li[@id='contact_tab']";
 
+
 const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
 const shadowText = "File";
