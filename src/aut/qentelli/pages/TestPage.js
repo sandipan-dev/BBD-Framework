@@ -15,9 +15,9 @@ const thoughtLeadership ="//li[@id='thought_tab']/a";
 const casestudies = "//ul[@class='thought-banner-btns']/li/a[contains(text(),'Case Studies')]";
 const optimizing = "//div[@class='insight-box views-col col-1']/div[@class='views-field views-field-field-tittle']/div/a[contains(text(),'Optimizing')]";
 const empower   ="//div[@class='views-field views-field-field-tittle']/div/a[starts-with(text(),'Empowering')]";
-const microservice = "//div[@class='views-field views-field-field-tittle']/div/a[starts-with(text(),'Microservices')]";
-const microserviceText = "//div[@class='casestudy-banner_txt']/h3";
-const microserviceTextData = "Microservices & Serverless in Consumer Tech";
+const microservicelink = "//div[@class='views-field views-field-field-tittle']/div/a[starts-with(text(),'Microservices')]";
+const microservice = "//div[@class='casestudy-banner_txt']/h3";
+const microserviceText = "Microservices & Serverless in Consumer Tech";
 
 
 
@@ -142,11 +142,11 @@ export default class TestPage extends Page {
 
    }
    async verifyMicroServiceLink(){
-    await action.verifyIsDisplayed(microservice,100);
-    await action.clickElement(microservice,100);
+    await action.verifyIsDisplayed(microservicelink,100);
+    await action.clickElement(microservicelink,100);
     await action.pause(1000);
-    await action.verifyIsDisplayed(microserviceText,100);
-    await action.verifyText(microserviceText,microserviceTextData);
+    await action.verifyIsDisplayed(microservice,100);
+    await action.verifyText(microservice,microserviceText);
     cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
 
    }
