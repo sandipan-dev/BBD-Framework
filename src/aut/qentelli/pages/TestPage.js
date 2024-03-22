@@ -146,13 +146,6 @@ export default class TestPage extends Page {
     await action.pause(2000);
     await action.verifyIsDisplayed(microserviceText,100);
     await action.verifyText(microserviceText,microserviceTextData);
-    await action.clickElement(techstack,1000);
-    const techwave = await $$(techstack);
-    // await techwave.filter(async(ele)=>{
-    //   console.log(await ele.getText())
-     //   console.log(await ele.getText())
-      //   console.log(await ele.getText())
-    // });
     cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
 
    }
