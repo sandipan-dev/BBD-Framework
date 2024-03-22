@@ -74,3 +74,6 @@ Then(/^I Verify the Disignation$/, async () => {
 Then(/^I Verify Know More Button$/, async () => {
     await testPage.knowMore();
 });
+Then(/^I Verify Error Message$/, async () =>{
+    await testPage.alertText();
+})

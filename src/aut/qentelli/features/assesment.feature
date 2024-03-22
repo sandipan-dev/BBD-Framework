@@ -9,4 +9,3 @@ Feature: Solutions
   Then I Verify the Person Name
   Then I Verify the Disignation
   And I Verify Know More Button
-  

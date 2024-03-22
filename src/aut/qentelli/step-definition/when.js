@@ -29,4 +29,10 @@ When(/^I Mousehover to Solutions$/, async () => {
 });
 When(/^I Click on Explore Testimonials button$/, async () => {
     await testPage.clickExpTesiBut();
-})
+});
+When(/^I click on Digital Innovation Link$/, async () =>{
+    await testPage.clickDigInn();
+});
+When(/^I click on Talk to on expert button by giving empty email field$/, async () =>{
+    await testPage.clickTalkToAnExpert();
+});

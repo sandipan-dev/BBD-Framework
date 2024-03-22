@@ -31,6 +31,8 @@ const ypoTextEle = ["//div[@class='video_txt']/p[2]"];
 const ypoPerName= ["//div[@class='video_txt']/h3/strong"];
 const ypoPersDis= ["//div[@class='video_txt']/p[3]"];
 const knowMore =["//div[@class='video_txt']/p/a"];
+const digitalInnovationLink = "//h4[@id='Digital_tab']/a"
+const talkToAnExpertButton = "//input[@id='edit-actions-submit']"
 
 
 export default class TestPage extends Page {
@@ -208,6 +210,19 @@ export default class TestPage extends Page {
         await action.verifyIsDisplayed(knowMore[0], 100);
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
-
-
+    //Verify Know More Button
+    async knowMore() {
+        await action.verifyIsDisplayed(knowMore[0], 100);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+    async clickDigInn() {
+        await action.clickElement(digitalInnovationLink, 100);
+    }
+    async clickTalkToAnExpert() {
+        await action.clickElement(talkToAnExpertButton, 100);
+    }
+    async alertText() {
+        const text = await getAlertText();
+        console.log(text);
+    }
 }
