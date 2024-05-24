@@ -93,9 +93,5 @@ export default class TestPage extends Page {
         await expect(locator).toBeDisplayed();
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
-
-        $('smart-ui-menu').shadow$('smart-menu-items-group[label=File]');
-
-        // $('smart-ui-menu').shadow$('div[smart-id=mainContainer] smart-menu-items-group[label=File]')
     }
 }
