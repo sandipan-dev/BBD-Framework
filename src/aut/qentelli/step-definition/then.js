@@ -35,3 +35,7 @@ Then(/^I verify ShadowRoot Demo page description is displayed$/, async () => {
 Then(/^I verify Shadow Root Element is displayed$/, async () => {
     await testPage.verifyShadowRootElement();
 });
+
+Then(/^I verify Selectorshub Iframe inside Shadowdom is displayed$/, async () => {
+    await testPage.verifyShadowRootIframeElement();
+});

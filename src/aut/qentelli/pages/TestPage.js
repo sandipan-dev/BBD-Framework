@@ -16,6 +16,9 @@ const shadowRootDemoDescription = "//div[@class='demo-description']";
 const shadowRootDemoDescriptionTxt = "Menu UI component is with Shadow DOM enabled. The Menu's markup structure, style, and behavior in this demo are hidden and separate from other code on the page.";
 const shadowText = "File";
 
+const closeBtn = "//button[@id='close']";
+const helpBtn = "//a[@class='hfe-menu-item' and contains(text(),'Help')]";
+
 export default class TestPage extends Page {
 
     constructor() {
@@ -80,6 +83,13 @@ export default class TestPage extends Page {
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 
+    // Navigate to Selectorshub Demo Page
+    async navigateToSelectorshubPage() {
+        await action.openApplication(appConfig.selectorshubUrl);
+        await action.pause(1000);
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
     // Verify ShadowRoot Demo Page description
     async verifyShadowRootDemoPageDescription() {
         await action.verifyIsDisplayed(shadowRootDemoDescription, 100);
@@ -92,6 +102,18 @@ export default class TestPage extends Page {
         const locator = await $('smart-ui-menu').shadow$('smart-menu-items-group[role=menuitem] span');
         await expect(locator).toBeDisplayed();
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
+        cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
+    }
+
+    // Verify Shadow Root Element
+    async verifyShadowRootIframeElement() {
+        const iframeLocator = await $('div[id=userName]').shadow$('iframe[id=pact1]');
+        await expect(iframeLocator).toBeDisplayed();
+        await browser.switchToFrame(iframeLocator);
+        await browser.pause(1000);
+        await expect($(closeBtn)).toBeDisplayed();
+        await browser.switchToParentFrame();
+        await expect($(helpBtn)).toBeDisplayed();
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 }
