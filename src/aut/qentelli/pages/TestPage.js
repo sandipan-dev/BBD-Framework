@@ -100,8 +100,12 @@ export default class TestPage extends Page {
     // Verify Shadow Root Element
     async verifyShadowRootElement() {
         const locator = await $('smart-ui-menu').shadow$('smart-menu-items-group[role=menuitem] span');
-        await expect(locator).toBeDisplayed();
+        await expect(locator).toBeDisplayed();        
         await expect(locator).toHaveText(expect.stringContaining(shadowText));
+        const content = await browser.execute(function(){
+           return document.querySelector('smart-ui-menu').shadowRoot.querySelector('smart-menu-items-group[role=menuitem] span').getInnerHTML();
+        });
+        console.log(content);
         cucumberJson.attach(await browser.takeScreenshot(), 'image/png');
     }
 
